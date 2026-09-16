@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bulk Transcript Grabber</title>
+  <link rel="stylesheet" href="ui.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main id="app">
+
+    <!-- Banner for a finished / interrupted batch -->
+    <section id="lastJob" class="banner" hidden>
+      <p id="lastJobText"></p>
+      <div class="row">
+        <button class="btn" id="lastOpen">Open results</button>
+        <button class="btn" id="lastResume" hidden>Resume</button>
+        <button class="btn link" id="lastDismiss">Dismiss</button>
+      </div>
+    </section>
+
+    <!-- Not on YouTube -->
+    <section id="emptyView" class="pad" hidden>
+      <h1 class="title">Bulk Transcript Grabber</h1>
+      <p id="emptyText">Open a YouTube channel's Videos tab, a playlist, or a search results page, then click the extension again.</p>
+    </section>
+
+    <!-- Picking videos -->
+    <section id="pickView" hidden>
+      <header class="pad hero">
+        <p class="muted small" id="pageKind"></p>
+        <h1 class="title" id="pageName"></h1>
+        <p><span class="caption big" id="foundCount">0 videos</span> <span class="muted" id="foundNote">on this page</span></p>
+        <p class="muted small" id="channelCount" hidden></p>
+        <div class="row">
+          <button class="btn" id="loadMore">Scroll page to load more</button>
+          <span class="muted small" id="loadMoreNote"></span>
+        </div>
+      </header>
+
+      <div class="pad selectbar">
+        <label for="firstN">Take the first</label>
+        <input id="firstN" type="number" min="1" value="10">
+        <button class="btn" id="applyFirstN">Select</button>
+        <span class="spacer"></span>
+        <button class="btn link" id="selAll">All</button>
+        <button class="btn link" id="selNone">None</button>
+      </div>
+
+      <ol id="videoList" class="videos"></ol>
+
+      <details class="pad options" id="options">
+        <summary>Options</summary>
+        <label class="opt">
+          <span>Caption language</span>
+          <input id="optLang" type="text" value="en" maxlength="10" spellcheck="false">
+        </label>
+        <p class="hint">Language code like en or hi. If a video doesn't have it, its main caption track is used.</p>
+        <label class="check">
+          <input id="optFallback" type="checkbox" checked>
+          <span>If the fast method fails, open the video in a tab and read its transcript panel</span>
+        </label>
+        <label class="check">
+          <input id="optVisible" type="checkbox">
+          <span>Show that tab while it works (slower for you, most reliable)</span>
+        </label>
+      </details>
+
+      <footer class="pad footer">
+        <button class="btn primary" id="startBtn" disabled>Get transcripts</button>
+        <p class="muted small" id="startNote">Keeps running if you close this popup. Your TXT downloads when it's done.</p>
+      </footer>
+    </section>
+
+    <!-- Running -->
+    <section id="runView" hidden>
+      <header class="pad hero">
+        <p class="muted small" id="runSource"></p>
+        <p><span class="caption big" id="runCount">0 of 0</span> <span class="muted" id="runState">saved</span></p>
+        <div class="bar"><div class="fill" id="runBar"></div></div>
+        <p class="now" id="runNow" hidden><span class="caption" id="runNowTitle"></span></p>
+        <p class="muted small" id="runStep"></p>
+      </header>
+      <ol id="runList" class="videos run"></ol>
+      <footer class="pad footer row">
+        <button class="btn" id="stopBtn">Stop</button>
+        <button class="btn primary" id="resultsBtn" hidden>Open results</button>
+        <button class="btn" id="newBtn" hidden>New batch</button>
+      </footer>
+    </section>
+
+    <p id="error" class="pad bad" hidden></p>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

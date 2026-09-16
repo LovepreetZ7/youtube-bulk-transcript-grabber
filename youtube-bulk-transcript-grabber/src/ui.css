@@ -1,0 +1,118 @@
+:root {
+  --paper: #eef1f5;
+  --surface: #ffffff;
+  --ink: #18202e;
+  --muted: #5d6778;
+  --line: #d5dbe4;
+  --caption: rgba(0, 0, 0, 0.84);
+  --caption-ink: #ffffff;
+  --caption-yellow: #f7d51d;
+  --ok: #17774f;
+  --bad: #b3322a;
+  --focus: #2f6fdb;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #171b22;
+    --surface: #20252e;
+    --ink: #e8ecf2;
+    --muted: #9aa3b2;
+    --line: #333a46;
+    --caption: rgba(0, 0, 0, 0.9);
+    --ok: #4cc48f;
+    --bad: #ff7b72;
+    --focus: #7fb0ff;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 13px/1.45 "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+}
+
+button, input, select {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* The one loud element: a subtitle strip, like captions on a video */
+.caption {
+  display: inline-block;
+  background: var(--caption);
+  color: var(--caption-ink);
+  padding: 3px 9px 4px;
+  border-radius: 3px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.caption.big {
+  font-size: 22px;
+  line-height: 1.25;
+  padding: 4px 12px 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.caption.yellow { color: var(--caption-yellow); }
+
+.btn {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 6px;
+  padding: 6px 11px;
+  cursor: pointer;
+}
+
+.btn:hover:not(:disabled) { border-color: var(--muted); }
+.btn:disabled { opacity: 0.5; cursor: default; }
+
+.btn.primary {
+  background: #000;
+  color: var(--caption-yellow);
+  border-color: #000;
+  font-weight: 600;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.btn.primary:hover:not(:disabled) { background: #1d1d1d; }
+
+.btn.link {
+  border: 0;
+  background: none;
+  padding: 2px 4px;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.muted { color: var(--muted); }
+.ok { color: var(--ok); }
+.bad { color: var(--bad); }
+
+.tag {
+  display: inline-block;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0 5px;
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

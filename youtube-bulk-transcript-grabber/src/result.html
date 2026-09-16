@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transcripts ready</title>
+  <link rel="stylesheet" href="ui.css">
+  <link rel="stylesheet" href="result.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <p class="muted" id="source">Loading…</p>
+      <h1 id="name"></h1>
+      <p class="line"><span class="caption big" id="count"></span> <span class="muted" id="countNote"></span></p>
+    </header>
+
+    <section class="panel" id="controls" hidden>
+      <div class="grid">
+        <fieldset>
+          <legend>Text layout</legend>
+          <label><input type="radio" name="format" value="paragraphs" checked> Readable paragraphs</label>
+          <label><input type="radio" name="format" value="lines"> One line per caption</label>
+          <label><input type="radio" name="format" value="timestamps"> Lines with timestamps</label>
+        </fieldset>
+        <fieldset>
+          <legend>Files</legend>
+          <label><input type="radio" name="output" value="combined" checked> One TXT with every video</label>
+          <label><input type="radio" name="output" value="separate"> One TXT per video</label>
+          <label class="extra"><input type="checkbox" id="removeTags"> Remove sound tags like [Music]</label>
+        </fieldset>
+      </div>
+      <div class="actions">
+        <button class="btn primary" id="download">Download TXT</button>
+        <button class="btn" id="copy">Copy all text</button>
+        <span class="muted" id="actionNote" role="status"></span>
+      </div>
+    </section>
+
+    <section class="panel" id="failedBox" hidden>
+      <h2 id="failedTitle">Videos without a transcript</h2>
+      <ul id="failedList" class="failed"></ul>
+    </section>
+
+    <section class="panel" id="previewBox" hidden>
+      <h2>Preview</h2>
+      <pre id="preview"></pre>
+    </section>
+  </main>
+  <script src="result.js"></script>
+</body>
+</html>
