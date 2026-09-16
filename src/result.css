@@ -1,0 +1,102 @@
+body { font-size: 14px; }
+
+.wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 36px 20px 60px;
+  display: grid;
+  gap: 18px;
+}
+
+.hero { display: grid; gap: 6px; }
+
+.hero h1 {
+  margin: 0 0 6px;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.hero .line { margin: 0; }
+.hero p { margin: 0; }
+
+.caption.big { font-size: 26px; }
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px 18px;
+}
+
+.panel h2 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px 24px;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 5px;
+}
+
+legend {
+  font-weight: 650;
+  margin-bottom: 4px;
+  padding: 0;
+}
+
+fieldset label { display: flex; gap: 7px; align-items: center; cursor: pointer; }
+fieldset label.extra { margin-top: 6px; }
+
+.actions {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.failed {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.failed li {
+  display: grid;
+  gap: 1px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.failed li:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.failed a { color: inherit; }
+
+.failed details { font-size: 12px; color: var(--muted); }
+.failed details summary { cursor: pointer; }
+
+pre {
+  margin: 0;
+  max-height: 520px;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: 13.5px/1.6 Georgia, "Iowan Old Style", "Times New Roman", serif;
+  max-width: 72ch;
+}

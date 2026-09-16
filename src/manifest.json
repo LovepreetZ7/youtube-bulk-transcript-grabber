@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Bulk Transcript Grabber",
+  "version": "1.0.0",
+  "description": "Pick videos from a YouTube channel, playlist or search page and save all their transcripts as TXT.",
+  "permissions": ["storage", "unlimitedStorage", "scripting", "downloads", "activeTab"],
+  "host_permissions": ["https://www.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Bulk Transcript Grabber",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
