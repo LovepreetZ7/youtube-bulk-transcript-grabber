@@ -1,0 +1,37 @@
+# Secrets and local configuration (the extension needs none, but never commit these)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crx
+secrets.*
+credentials.*
+cookies.txt
+*.cookies
+
+# Packaged builds (create these locally when needed; do not commit)
+*.zip
+dist/
+build/
+
+# Downloaded transcripts and personal test output
+YouTube Transcripts/
+*.transcript.txt
+
+# Dependencies (none are required, kept here in case tooling is added later)
+node_modules/
+
+# Editor and operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs and temporary files
+*.log
+*.tmp
+tmp/
